@@ -1,6 +1,7 @@
 name: Create GitHub Release
 
 on:
+  workflow_dispatch:
   push:
     tags:
       - 'v*.*.*'  # Match semantic version tags like v1.2.3
