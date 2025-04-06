@@ -1,0 +1,15 @@
+{
+    "name": "sublet-agent",
+    "version": "0.1.0",
+    "description": "Sublet Agent: Secure agent for Sublet domain monetization",
+    "main": "src/index.js",
+    "scripts": {
+        "dev": "NODE_TLS_REJECT_UNAUTHORIZED=0 node --inspect=9229 --env-file=.env.local src/index.js",
+        "dev:debug": "NODE_TLS_REJECT_UNAUTHORIZED=0 DEBUG=* node --inspect=9229 --env-file=.env.local src/index.js",
+        "start": "node --env-file=.env src/index.js",
+        "test": "echo \"No tests yet\""
+    },
+    "dependencies": {
+        "socket.io-client": "^4.8.1"
+    }
+}

@@ -1,0 +1,9 @@
+services:
+  sublet-agent:
+    build: .
+    image: sublet-agent
+    env_file: .env.local
+    environment:
+      - DD_AGENT_HOST=datadog      
+    volumes:
+      - .:/usr/src/app

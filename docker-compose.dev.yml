@@ -1,0 +1,9 @@
+services:
+  sublet-agent-dev:
+    container_name: sublet-agent-dev
+    command: npm run dev
+    ports:
+      - '9229:9229'
+      - '3000:3000'
+
+
