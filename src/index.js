@@ -88,6 +88,22 @@ const socket = io(SUBLET_API_URL + '/subletAgent', {
     error
 })
 
+const pingServer = () => {
+    socket.emit('agent:ping', (ack) => {
+        if (!ack || ack.error) {
+            console.error(`❌ Error sending agent ping: ${ack?.error || 'No response'}`)
+        } else {
+            console.info(`✅ Acknowledgement from server: ${ack.message}`)
+        }
+    })
+}
+
+// Initial ping
+pingServer()
+
+// Continue pinging every 5 minutes
+setInterval(pingServer, 300_000)
+
 // Handle DNS update requests
 socket.on('updateNS', async (payload, ack) => {
     const { domain, nameservers } = payload
