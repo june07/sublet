@@ -1,6 +1,6 @@
 {
     "name": "sublet-agent",
-    "version": "0.1.8",
+    "version": "0.1.9",
     "description": "Sublet Agent: Secure agent for Sublet domain monetization",
     "main": "src/index.js",
     "scripts": {
@@ -10,6 +10,7 @@
         "test": "echo \"No tests yet\""
     },
     "dependencies": {
+        "cloudflare": "^4.2.0",
         "socket.io-client": "^4.8.1"
     }
 }

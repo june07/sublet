@@ -11,6 +11,8 @@ const providers = {
 }
 
 async function updateNSRecords(config) {
+    const { provider = 'cloudflare' } = config
+    
     try {
         providers[provider].updateNSRecords(config)
     } catch (error) {
