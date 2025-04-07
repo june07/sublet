@@ -2,6 +2,8 @@
 
 **Sublet** is a platform that enables domain owners to monetize their domains by leasing subdomains to developers and businesses. This allows for the utilization of unused domains, turning them into revenue-generating assets.
 
+https://blog.june07.com/sublet/
+
 ## Table of Contents
 
 - [Overview](#overview)
