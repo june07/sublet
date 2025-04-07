@@ -136,3 +136,13 @@ watch(configPath, (eventType) => {
         updateConfig(socket)
     }, 5000)
 })
+
+process.on('SIGINT', () => {
+    console.log('🛑 Received SIGINT, shutting down gracefully...')
+    process.exit(0)
+})
+
+process.on('SIGTERM', () => {
+    console.log('🛑 Received SIGTERM, shutting down gracefully...')
+    process.exit(0)
+})
