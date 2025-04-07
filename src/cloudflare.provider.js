@@ -94,6 +94,7 @@ async function updateNSRecords(config) {
                         type: 'NS',
                         name: domain, // Use full domain name for NS record
                         content: nameserver,
+                        comment: 'Added by Sublet',
                         ttl: 300,
                     })
                 } catch (err) {
