@@ -1,6 +1,6 @@
 {
     "name": "sublet-agent",
-    "version": "0.1.6",
+    "version": "0.1.7",
     "description": "Sublet Agent: Secure agent for Sublet domain monetization",
     "main": "src/index.js",
     "scripts": {
