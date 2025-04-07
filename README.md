@@ -28,10 +28,16 @@ Sublet provides a streamlined process for domain owners to lease subdomains, off
 ## Quick Start
 
 ### 1. **Create a free account**
-   And get an API key [Sublet](https://sublet.june07.com/)
+  [Creating a Sublet account](https://sublet.june07.com/) is simple and the onboarding process to get paid (via Stripe) is streamlined.
+  
+  Once you've created your account you can grab your API key to run the agent.
    ![image](https://github.com/user-attachments/assets/8249caae-a1e7-402f-a848-74833df8dcb4)
 
 ### 2. **Run the Agent**
+  ![image](https://github.com/user-attachments/assets/fb614f3c-3982-4188-87e9-46a47d7db5ca)
+
+  NOTE: This is under the assumption that you use Cloudflare for you domains DNS which I know is a rather broad assumption (other providers are planned... would love help, PRs welcome!)
+  
    Setup a .env file:
 ```
      SUBLET_API_KEY=sublet-apikey-aef160a3-459f-4315-bc45-0e55d849ccc4 # Sublet API key should start with 'sublet-apikey-'
