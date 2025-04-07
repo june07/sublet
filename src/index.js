@@ -48,13 +48,11 @@ function init() {
     if (process.env.NODE_ENV !== 'production') console.log('🔑 Example config hash:', currentHash)
 
     if (currentHash === defaultHash) {
-        console.warn(`
-⚠️  You are using the default example config.js
+        console.warn(`⚠️  You are using the default example config.js
 
 \tCreate your own and mount it like this:
 
-\t👉 docker run --rm -v $(pwd)/config.js:/config.js --env-file .env ghcr.io/june07/sublet
-`)
+\t👉 docker run --rm -v $(pwd)/config.js:/config.js --env-file .env ghcr.io/june07/sublet`)
     }
     if (!config.agent.id) {
         console.info('⚠️  No agent ID found in config file. Generating one...')
@@ -64,8 +62,7 @@ function init() {
             console.warn(`
 ⚠️  It appears that you have not mounted your own config file...
 
-\tNote: Your agent ID will reset every time you run the container unless you mount your own config file.
-`)
+\tNote: Your agent ID will reset every time you run the container unless you mount your own config file.`)
         }
         // wrrite the new config back to the file
         const configString = 'module.exports = ' + util.inspect(config, { depth: null, compact: false }) + '\n'
