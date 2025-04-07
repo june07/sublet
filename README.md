@@ -1,4 +1,4 @@
-# Sublet
+# Sublet Agent
 
 **Sublet** is a platform that enables domain owners to monetize their domains by leasing subdomains to developers and businesses. This allows for the utilization of unused domains, turning them into revenue-generating assets.
 
@@ -25,7 +25,33 @@ Sublet provides a streamlined process for domain owners to lease subdomains, off
 - **Developer Access**: Developers can acquire subdomains on premium domains, enhancing their project's credibility.
 - **Automated Management**: Simplifies the process of subdomain leasing with automated tools and configurations.
 
-## Getting Started
+## Quick Start
+
+### 1. **Create a free account**
+   And get an API key [Sublet](https://sublet.june07.com/)
+   ![image](https://github.com/user-attachments/assets/8249caae-a1e7-402f-a848-74833df8dcb4)
+
+### 2. **Run the Agent**
+   Setup a .env file:
+```
+     SUBLET_API_KEY=sublet-apikey-12345678-1234-1234-1234-123456789ABC # Sublet API key should start with 'sublet-apikey-'
+     SUBLET_API_URL=https://sublet-api.june07.com
+     CLOUDFLARE_EMAIL=your-cloudflare-email # This data is never sent to the server
+     CLOUDFLARE_API_TOKEN=your-cloudflare-api-token # This data is never sent to the server
+```
+
+Then run the docker container: 
+
+```bash
+docker run --env-file .env ghcr.io/june07/sublet
+```
+   
+### 3. **Profit!** 
+That is literally all you need to do to get going with monetizing your domains.
+
+
+
+## Getting Started (development)
 
 Follow these instructions to set up and run the Sublet application on your local machine.
 
