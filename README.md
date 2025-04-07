@@ -34,7 +34,7 @@ Sublet provides a streamlined process for domain owners to lease subdomains, off
 ### 2. **Run the Agent**
    Setup a .env file:
 ```
-     SUBLET_API_KEY=sublet-apikey-12345678-1234-1234-1234-123456789ABC # Sublet API key should start with 'sublet-apikey-'
+     SUBLET_API_KEY=sublet-apikey-aef160a3-459f-4315-bc45-0e55d849ccc4 # Sublet API key should start with 'sublet-apikey-'
      SUBLET_API_URL=https://sublet-api.june07.com
      CLOUDFLARE_EMAIL=your-cloudflare-email # This data is never sent to the server
      CLOUDFLARE_API_TOKEN=your-cloudflare-api-token # This data is never sent to the server
