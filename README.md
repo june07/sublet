@@ -8,6 +8,7 @@ https://blog.june07.com/sublet/
 
 - [Overview](#overview)
 - [Features](#features)
+- [Quick Start](#quick-start)
 - [Getting Started](#getting-started)
   - [Prerequisites](#prerequisites)
   - [Installation](#installation)
