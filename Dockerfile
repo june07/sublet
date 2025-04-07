@@ -1,6 +1,9 @@
 # Use a Node.js base image
 FROM node:lts
 
+# Set environment variable
+ENV NODE_ENV=production
+
 # Set working directory
 WORKDIR /usr/src/app
 
