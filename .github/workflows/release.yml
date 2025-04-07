@@ -22,6 +22,13 @@ jobs:
         run: |
           TAG_NAME=${GITHUB_REF##*/}
           NOTES=$(awk "/^## $TAG_NAME/{flag=1;next}/^## /{flag=0}flag" CHANGELOG.md || echo "Release $TAG_NAME")
+
+          # Append Docker image link
+          NOTES="$NOTES
+          ---
+          
+          📦 Docker Image: [ghcr.io/june07/sublet](https://github.com/june07/sublet/pkgs/container/sublet)"
+
           echo "release_notes<<EOF" >> $GITHUB_OUTPUT
           echo "$NOTES" >> $GITHUB_OUTPUT
           echo "EOF" >> $GITHUB_OUTPUT
