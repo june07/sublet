@@ -12,6 +12,7 @@ if (!SUBLET_API_URL) {
 
 const path = require('path')
 const util = require('util')
+const { createHash } = require('crypto')
 const { watch, writeFileSync } = require('fs')
 const { io } = require('socket.io-client')
 const { updateNSRecords } = require('./subletAgentService')
@@ -41,12 +42,33 @@ function loadConfig() {
     }
 }
 function init() {
+    const defaultHash = '241a2a130eccb4226135eea3375b024eade21567d469ff78422ee7a43eec6ead'
+    const currentHash = createHash('sha256').update(JSON.stringify(config)).digest('hex')
+
+    if (process.env.NODE_ENV !== 'production') console.log('🔑 Example config hash:', currentHash)
+
+    if (currentHash === defaultHash) {
+        console.warn(`
+⚠️  You are using the default example config.js
+
+\tCreate your own and mount it like this:
+
+\t👉 docker run --rm -v $(pwd)/config.js:/config.js --env-file .env ghcr.io/june07/sublet
+`)
+    }
     if (!config.agent.id) {
-        console.log('⚠️ No agent ID found in config file. Generating one...')
+        console.info('⚠️  No agent ID found in config file. Generating one...')
         config.agent.id = Math.random().toString(36).substring(2, 9)
 
+        if (currentHash === defaultHash) {
+            console.warn(`
+⚠️  It appears that you have not mounted your own config file...
+
+\tNote: Your agent ID will reset every time you run the container unless you mount your own config file.
+`)
+        }
         // wrrite the new config back to the file
-        const configString = 'module.exports = ' + util.inspect(config, { depth: null, compact: false }) + '\n';
+        const configString = 'module.exports = ' + util.inspect(config, { depth: null, compact: false }) + '\n'
         writeFileSync(configPath, `${configString}`, 'utf-8')
         console.log('✅ Agent ID saved to config file')
     }
