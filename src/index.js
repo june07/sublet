@@ -142,5 +142,5 @@ const shutdown = (signal) => {
     socket.close()
     process.exit(0)
 }
-process.on('SIGINT', shutdown('SIGINT'))
-process.on('SIGTERM', shutdown('SIGTERM'))
+process.on('SIGINT', () => shutdown('SIGINT'))
+process.on('SIGTERM', () => shutdown('SIGTERM'))
