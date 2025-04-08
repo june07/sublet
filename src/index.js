@@ -52,7 +52,7 @@ function init() {
 
 \tCreate your own and mount it like this:
 
-\t👉 docker run --rm -v $(pwd)/config.js:/config.js --env-file .env ghcr.io/june07/sublet`)
+\t👉 docker run --rm -v $(pwd)/config.js:/usr/src/app/config.js --env-file .env ghcr.io/june07/sublet`)
     }
     if (!config.agent.id) {
         console.info('⚠️  No agent ID found in config file. Generating one...')
