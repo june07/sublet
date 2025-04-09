@@ -5,9 +5,9 @@ const path = require('path')
 const { program } = require('commander')
 const inquirer = require('inquirer').default
 
-const envPath = path.resolve(process.cwd(), '.env.sublet')
-const configPath = path.resolve(process.cwd(), 'sublet-config.js')
-const CACHE_FILE = path.join(process.cwd(), '.sublet-cli.json')
+const envPath = path.resolve(process.cwd(), 'config/.env.sublet')
+const configPath = path.resolve(process.cwd(), 'config/sublet-config.js')
+const CACHE_FILE = path.join(process.cwd(), 'config/.sublet-cli.json')
 let chalk
 
 function loadDefaults() {

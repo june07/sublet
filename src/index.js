@@ -1,13 +1,10 @@
 const {
     SUBLET_API_KEY,
-    SUBLET_API_URL = 'https://sublet-api.june07.com',
+    SUBLET_API_URL = 'https://api.june07.com',
 } = process.env
 
 if (!SUBLET_API_KEY) {
     throw new Error('No agent API key found!')
-}
-if (!SUBLET_API_URL) {
-    throw new Error('No agent API URL found!')
 }
 
 const path = require('path')
@@ -85,7 +82,7 @@ const socket = io(SUBLET_API_URL + '/subletAgent', {
 }).on('disconnect', reason => {
     console.info(`disconnected from ${socket.nsp} namespace: `, reason)
 }).on('error', error => {
-    error
+    console.error(`error from ${socket.nsp} namespace: `, error)
 })
 
 const pingServer = () => {
@@ -118,9 +115,12 @@ socket.on('updateNS', async (payload, ack) => {
 })
 
 // Error handling
-socket.on('connect_error', err => {
-    console.error('Socket connection error:', err.message)
+socket.on('auth:error', ({ error }) => {
+    shutdown('🛑 Auth error: ' + error)
 })
+    .on('connect_error', err => {
+        shutdown(`🛑 Socket connection error: ${err.message}`)
+    })
 
 socket.on('disconnect', reason => {
     console.warn(`Disconnected: ${reason}`)
@@ -137,10 +137,10 @@ watch(configPath, (eventType) => {
     }, 5000)
 })
 
-const shutdown = (signal) => {
-    console.log(`🛑 Received ${signal}, shutting down gracefully...`)
+const shutdown = (message) => {
+    console.log(message)
     socket.close()
     process.exit(0)
 }
-process.on('SIGINT', () => shutdown('SIGINT'))
-process.on('SIGTERM', () => shutdown('SIGTERM'))
+process.on('SIGINT', () => shutdown(`🛑 Received SIGINT, shutting down gracefully...`))
+process.on('SIGTERM', () => shutdown(`🛑 Received SIGTERM, shutting down gracefully...`))
