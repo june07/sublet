@@ -10,7 +10,10 @@
         "test": "echo \"No tests yet\""
     },
     "dependencies": {
+        "chalk": "^5.4.1",
         "cloudflare": "^4.2.0",
+        "commander": "^13.1.0",
+        "inquirer": "^12.5.2",
         "socket.io-client": "^4.8.1"
     }
 }

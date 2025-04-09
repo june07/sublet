@@ -1,6 +1,6 @@
 const {
     SUBLET_API_KEY,
-    SUBLET_API_URL,
+    SUBLET_API_URL = 'https://sublet-api.june07.com',
 } = process.env
 
 if (!SUBLET_API_KEY) {
