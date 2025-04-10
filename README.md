@@ -42,6 +42,16 @@ Sublet provides a streamlined process for domain owners to lease subdomains, off
   NOTE: This is under the assumption that you use Cloudflare for you domains DNS which I know is a rather broad assumption (other providers are planned... would love help, PRs welcome!)
   
    Setup a .env file:
+
+  You can do this with the setup tool...
+```
+  docker run --rm -it -v $(pwd):/usr/src/app/config ghcr.io/june07/sublet setup.js
+```
+![image](https://github.com/user-attachments/assets/a8c28a51-adae-46b3-a0ad-9fcdc3105409)
+
+
+  or manually...
+
 ```
      SUBLET_API_KEY=sublet-apikey-aef160a3-459f-4315-bc45-0e55d849ccc4 # Sublet API key should start with 'sublet-apikey-'
      SUBLET_API_URL=https://sublet-api.june07.com
@@ -52,7 +62,7 @@ Sublet provides a streamlined process for domain owners to lease subdomains, off
 Then run the docker container: 
 
 ```bash
-docker run --env-file .env ghcr.io/june07/sublet
+docker run -v $(pwd)/sublet-config.js:/usr/src/app/config.js --env-file .env.sublet ghcr.io/june07/sublet
 ```
    
 ### 3. **Profit!** 
