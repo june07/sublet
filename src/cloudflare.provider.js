@@ -53,6 +53,7 @@ async function getZoneId(domain) {
         }
     } catch (error) {
         logger.log({ level: 'error', namespace: logNS, message: `Error fetching Zone ID: ${error.message}`, error })
+        throw error
     }
 }
 async function updateNSRecords(config) {
