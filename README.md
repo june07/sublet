@@ -37,7 +37,7 @@ Sublet provides a streamlined process for domain owners to lease subdomains, off
    ![image](https://github.com/user-attachments/assets/8249caae-a1e7-402f-a848-74833df8dcb4)
 
 ### 2. **Run the Agent**
-  ![image](https://github.com/user-attachments/assets/fb614f3c-3982-4188-87e9-46a47d7db5ca)
+  ![image](https://github.com/user-attachments/assets/a8c28a51-adae-46b3-a0ad-9fcdc3105409)
 
   NOTE: This is under the assumption that you use Cloudflare for you domains DNS which I know is a rather broad assumption (other providers are planned... would love help, PRs welcome!)
   
@@ -47,9 +47,6 @@ Sublet provides a streamlined process for domain owners to lease subdomains, off
 ```
   docker run --rm -it -v $(pwd):/usr/src/app/config ghcr.io/june07/sublet setup.js
 ```
-![image](https://github.com/user-attachments/assets/a8c28a51-adae-46b3-a0ad-9fcdc3105409)
-
-
   or manually...
 
 ```
@@ -58,7 +55,7 @@ Sublet provides a streamlined process for domain owners to lease subdomains, off
      CLOUDFLARE_EMAIL=your-cloudflare-email # This data is never sent to the server
      CLOUDFLARE_API_TOKEN=your-cloudflare-api-token # This data is never sent to the server
 ```
-
+  ![image](https://github.com/user-attachments/assets/fb614f3c-3982-4188-87e9-46a47d7db5ca)
 Then run the docker container: 
 
 ```bash
@@ -184,3 +181,4 @@ We welcome contributions to enhance Sublet. To contribute:
 ## License
 
 This project is licensed under the [MIT License](LICENSE).
+
